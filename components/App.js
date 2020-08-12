@@ -6,8 +6,8 @@ class App extends Component{
   render(){
     return(
       <div className="App">
-        <Example />
-        <h1>Are you working</h1>
+        <h1>Are you working? I'm the react Component</h1>
+        <Table />        
       </div>      
     );
   }

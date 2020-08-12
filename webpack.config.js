@@ -29,6 +29,14 @@ module.exports = {
               [
                 '@babel/plugin-proposal-class-properties',
               ],
+              [
+                'transform-runtime', {
+                  helpers: false,
+                  polyfill: false,
+                  regenerator: true,
+                  moduleName: 'babel-runtime',
+                },
+              ],
             ],
           },
         },
@@ -39,5 +47,5 @@ module.exports = {
       },
     ],
   },
-  
+
 };

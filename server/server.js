@@ -7,12 +7,13 @@ const port = 3000;
 const router = require('./derbylistingRouter');
 // handle parsing request body
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // request for static files
 app.use('/build', express.static(path.join(__dirname, '../build')));
 
 // route handler
-// app.use('/', router);
+app.use('/api', router);
 
 // responding with the main app
 app.get('/', (req, res) => {

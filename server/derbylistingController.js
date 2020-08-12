@@ -2,14 +2,18 @@ const db = require('./derbylistingModel');
 
 const derbylistingController = {};
 
-derbylistingController.getLeagues = async function (req, res, next) {
+derbylistingController.getLeagues = function (req, res, next) {
   const leagues = `
   SELECT country, region, city, name, status
   FROM "public"."leagues" `;
 
-  const data = await db.query(leagues);
-  res.locals.leagues = data.rows;
-  next();
+  db.query(leagues)
+    .then((data) => {
+      // res.body
+      res.locals.leagues = { hi: 'there' }; // {'hi':'there'}
+      console.log(res.locals.leagues);
+      next();
+    });
 };
 
 // derbylistingController.addLeagues = async function (req, res, next) {
