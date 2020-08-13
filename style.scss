@@ -1,0 +1,96 @@
+$color1: rgb(236, 235, 235);
+$color2: rgb(31, 29, 29);
+$color3: rgb(20, 19, 19);
+$color4: rgb(161, 12, 12);
+$color5: rgb(243, 235, 235);
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    
+    li {
+      float: left;
+      color: $color1;
+      border: 1px solid #bbb;
+    } 
+    a {
+      display: block;
+      padding: 8px;
+      background-color: $color2;
+      text-decoration: none;
+      color: $color1;
+    }
+    a:hover {
+      background-color: $color4;
+    }
+}
+
+body {
+  background-color: $color5;
+}
+
+@mixin absolute-center() {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    min-width: 80%;
+  }
+
+#title {
+    background-color: $color3;
+    color: $color1;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 5px groove $color4;
+    border-radius: 8px;
+    -webkit-box-shadow: 1px 5px 7px 3px rgba(0,0,0,0.2); 
+    box-shadow: 1px 5px 7px 3px rgba(0,0,0,0.2);
+}
+
+.App {
+    background-color: white;
+    box-shadow: 1px 5px 7px 3px rgba(0,0,0,0.2);
+    @include absolute-center()
+}
+
+.addBtn {
+  background-color: $color2;
+  color: $color1;
+  padding: 8px;
+  float: right;
+  margin: 5px;
+  button:hover {
+    background-color: $color4;
+  }
+}
+
+#addLeagueModal {
+  // display: block or none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  .addLeague-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+}
+
+.addModal:hover,
+.addModal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

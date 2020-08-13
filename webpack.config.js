@@ -13,7 +13,7 @@ module.exports = {
     hot: true,
     port: 8080,
     proxy: {
-      '/server': 'http://localhost:3000',
+      '/api': 'http://localhost:3000',
     },
   },
   module: {
@@ -28,14 +28,6 @@ module.exports = {
             plugins: [
               [
                 '@babel/plugin-proposal-class-properties',
-              ],
-              [
-                'transform-runtime', {
-                  helpers: false,
-                  polyfill: false,
-                  regenerator: true,
-                  moduleName: 'babel-runtime',
-                },
               ],
             ],
           },

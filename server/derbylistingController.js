@@ -4,14 +4,15 @@ const derbylistingController = {};
 
 derbylistingController.getLeagues = function (req, res, next) {
   const leagues = `
-  SELECT country, region, city, name, status
-  FROM "public"."leagues" `;
+  SELECT country, region, city, name, fb, status
+  FROM "public"."leagues" 
+  ORDER BY country, region`;
 
   db.query(leagues)
     .then((data) => {
       // res.body
-      res.locals.leagues = { hi: 'there' }; // {'hi':'there'}
-      console.log(res.locals.leagues);
+      res.locals.leagues = data.rows;
+    //   console.log(res.locals.leagues);
       next();
     });
 };
